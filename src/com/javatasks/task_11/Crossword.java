@@ -10,11 +10,10 @@ import java.util.Scanner;
  * - try to open any letter;
  * - you know the word and are ready to write it down
  * - find out if some substring exists in the secret word
-
  */
 public class Crossword {
     public static void main(String[] args) {
-        System.out.println("Please enter the secret word or some phrase for game");
+        System.out.println("Please enter the secret word for game");
         Scanner scanner = new Scanner(System.in);
         String secretWord = scanner.nextLine();
 
@@ -28,12 +27,12 @@ public class Crossword {
             String menuItem = scanner.nextLine();
             System.out.println("You selected following menu item: " + menuItem);
 
-            if (menuItem.contains("0") || menuItem.contains("Exit")){
+            if (menuItem.contains("0") || menuItem.contains("Exit")) {
                 System.out.println("Exit from game");
                 break;
             }
 
-            switch (menuItem){
+            switch (menuItem) {
                 case "1":
                     getLengthWord(secretWord);
                     break;
@@ -51,6 +50,7 @@ public class Crossword {
                     break;
                 case "6":
                     getSubstring(secretWord);
+                    break;
                 default:
                     System.out.println("You selected invalid menu item. Try again");
                     System.out.println();
@@ -61,23 +61,22 @@ public class Crossword {
 
     }
 
-    public static void getLengthWord(String secretWord){
+    public static void getLengthWord(String secretWord) {
         //used trim() method in order to cut whitespaces
         //used length() method in order to find the length of string
         System.out.println("The length of word is: " + secretWord.trim().length());
         System.out.println();
     }
 
-    public static void compareWords(String secretWord){
+    public static void compareWords(String secretWord) {
         System.out.println("Please enter you the secret word");
         Scanner scanner = new Scanner(System.in);
         String enteredWord = scanner.nextLine();
         //use trim() method in order to cut the whitespaces for entered word
         //use equalsIgnoreCase() method in order to compare both words with ignoring the case
-        if (enteredWord.trim().equalsIgnoreCase(secretWord.trim())){
+        if (enteredWord.trim().equalsIgnoreCase(secretWord.trim())) {
             System.out.println("Congrads! Your answer is correct");
-        }
-        else {
+        } else {
             System.out.println("You are wrong. Please try again");
         }
         System.out.println();
@@ -100,7 +99,7 @@ public class Crossword {
         System.out.println();
     }
 
-    public static void compareLetter(String secretWord){
+    public static void compareLetter(String secretWord) {
         System.out.println("Please enter you letter");
         Scanner scanner = new Scanner(System.in);
         String enteredLetter = scanner.next();
@@ -109,7 +108,7 @@ public class Crossword {
         int result = secretWord.trim().indexOf(enteredLetter.trim());
         System.out.println("You selected letter: " + enteredLetter);
         // if indexOf() returns the index (from 0 to length - 1) -> suggested letter exists in the word
-        if (result >=0){
+        if (result >= 0) {
             System.out.println("The secret word has this letter");
             System.out.println("It has position number: " + (result + 1));
         }
@@ -118,18 +117,18 @@ public class Crossword {
             System.out.println("The secret word does NOT have this letter. Please try again");
         }
         System.out.println();
-        }
+    }
 
-    public static void compareSubstring(String secretWord){
+    public static void compareSubstring(String secretWord) {
         System.out.println("Enter your substring");
         Scanner scanner = new Scanner(System.in);
         String enteredSubstring = scanner.nextLine();
         //used trim() in order to cut the whitespaces for entered sequence of letters
         //used indexOf() in order to find the entered sequence of letters in the word
         int result = secretWord.trim().indexOf(enteredSubstring);
-        System.out.println("You entered substring: " +  enteredSubstring);
+        System.out.println("You entered substring: " + enteredSubstring);
         // if indexOf() returns the index (from 0 to length - 1) -> suggested sequence of letter exists in the word
-        if (result >=0){
+        if (result >= 0) {
             System.out.println("This substring exists in the secret word");
             System.out.println("This substring starts from [" + (result + 1) + "] position in the secret word");
         }
@@ -140,7 +139,7 @@ public class Crossword {
         System.out.println();
     }
 
-    public static void getSubstring(String secretWord){
+    public static void getSubstring(String secretWord) {
         System.out.println("Please enter start position for getting substring");
         Scanner scanner = new Scanner(System.in);
         int startPosition = scanner.nextInt();
@@ -148,19 +147,18 @@ public class Crossword {
         int endPosition = scanner.nextInt();
         //used length() method in order to find the length of word
         int length = secretWord.trim().length();
-        System.out.println("You selected positions: [" + startPosition + " - " + endPosition + "]" );
-        if (endPosition <= length){
+        System.out.println("You selected positions: [" + startPosition + " - " + endPosition + "]");
+        if (endPosition <= length) {
             System.out.println("Find substring for this positions is:");
             //used substring(startIndex, endIndex) method in order to extract the sequence of letters
             System.out.println(secretWord.substring(startPosition - 1, endPosition));
-        }
-        else {
+        } else {
             System.out.println("Entered end position is bigger than the length of word");
         }
         System.out.println();
     }
 
-    public static void showMenuItemForCrosswordGame(){
+    public static void showMenuItemForCrosswordGame() {
         System.out.println("Please select the help option");
         System.out.println("1. I want to know the length of word");
         System.out.println("2. I want to know if some letter exists in the secret word");
@@ -172,4 +170,4 @@ public class Crossword {
         System.out.println();
 
     }
-    }
+}
