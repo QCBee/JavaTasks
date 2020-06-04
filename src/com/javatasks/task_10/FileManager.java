@@ -25,7 +25,7 @@ public class FileManager {
             Scanner scanner = new Scanner(System.in);
             String selectedFileMenuItem = scanner.nextLine();
             System.out.println("You selected following menu item: " + selectedFileMenuItem);
-            if (selectedFileMenuItem.contains("0") || selectedFileMenuItem.contains("exit") ||
+            if (selectedFileMenuItem.equals("0") || selectedFileMenuItem.contains("exit") ||
                     selectedFileMenuItem.contains("EXIT") || selectedFileMenuItem.contains("Exit")) {
                 System.out.println("You selected exit menu item. See you later=)");
                 break;
