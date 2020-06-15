@@ -27,15 +27,6 @@ public class HashSetCollection {
         }
         System.out.println();
 
-        //Remove the 3d element in HashSet Collection
-        numbers.remove(3);
 
-        //Show the elements in the HashSet Collection after deleting the 3d element
-        System.out.println("State of HashSet Collection after deleting the 3d elements");
-        System.out.println("Size of collection is: " + numbers.size() + " elements");
-        for (Integer item:numbers) {
-            System.out.println(item);
-        }
-        System.out.println();
     }
 }
